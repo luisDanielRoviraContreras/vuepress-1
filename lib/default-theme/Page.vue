@@ -19,6 +19,7 @@
         </span>
       </p>
     </div>
+    <slot name="bottom"/>
   </div>
 </template>
 
@@ -51,6 +52,9 @@ export default {
       }
     },
     editLink () {
+      if (this.$page.frontmatter.editLink === false) {
+        return
+      }
       const {
         repo,
         editLinks,
